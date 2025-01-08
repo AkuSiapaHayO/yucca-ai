@@ -14,11 +14,11 @@ const PORT = 5000;
 // Initialize OpenAI with your API key
 const openai = new OpenAI({
   apiKey:
-    "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",
+    "ChatGPT API key here",
 });
 
 const elevenlabs = new ElevenLabsClient({
-  apiKey: "sk_542dda7f1e25d41259fd264b5184aa8cbcee31a2f5c0be57", // Defaults to process.env.ELEVENLABS_API_KEY
+  apiKey: "Elevenlabs API key here", // Defaults to process.env.ELEVENLABS_API_KEY
 });
 const voiceId = "ZWJROjmcIFwz9upnHIW5";
 
@@ -93,7 +93,7 @@ app.post("/api/chat", async (req, res) => {
 
   try {
     const completion = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: "ft:gpt-4o-2024-08-06:personal:2-final-try:Amvzf1kd",
       messages: [
         {
           role: "system",
