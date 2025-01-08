@@ -1,46 +1,158 @@
 require("dotenv").config();
 const express = require("express");
+const fs = require("fs").promises; // Use promise-based API directly
+const fsSync = require("fs"); // For synchronous or callback-based usage
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const OpenAI = require("openai");
-
+const { exec } = require("child_process");
+//const voice = require("elevenlabs-node").default || require("elevenlabs-node");
+const { ElevenLabsClient, play } = require("elevenlabs");
 const app = express();
 const PORT = 5000;
 
 // Initialize OpenAI with your API key
-const openai = new OpenAI({ 
-    apiKey: "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"
+const openai = new OpenAI({
+  apiKey:
+    "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",
 });
 
+const elevenlabs = new ElevenLabsClient({
+  apiKey: "sk_542dda7f1e25d41259fd264b5184aa8cbcee31a2f5c0be57", // Defaults to process.env.ELEVENLABS_API_KEY
+});
+const voiceId = "ZWJROjmcIFwz9upnHIW5";
+
 // Middleware
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "http://localhost:5173" })); // Adjust origin as needed
 app.use(bodyParser.json());
 
-// Route for chatbot logic
+// Helper functions
+const execCommand = (command) => {
+  return new Promise((resolve, reject) => {
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        console.error("Command execution error:", error);
+        reject(error);
+      }
+      resolve(stdout);
+    });
+  });
+};
+
+const lipSyncMessage = async (messageIndex) => {
+  try {
+    await execCommand(
+      `ffmpeg -y -i audios/message_${messageIndex}.mp3 audios/message_${messageIndex}.wav`,
+    );
+    await execCommand(
+      `./bin/rhubarb -f json -o audios/message_${messageIndex}.json audios/message_${messageIndex}.wav -r phonetic`,
+    );
+  } catch (error) {
+    console.error("Lip-sync command failed:", error);
+    throw error;
+  }
+};
+
+const readJsonTranscript = async (file) => {
+  try {
+    const data = await fs.readFile(file, "utf8");
+    return JSON.parse(data);
+  } catch (error) {
+    console.error("Error reading JSON transcript:", error);
+    throw error;
+  }
+};
+
+const audioFileToBase64 = async (file) => {
+  try {
+    const data = await fs.readFile(file);
+    return data.toString("base64");
+  } catch (error) {
+    console.error("Error converting audio to Base64:", error);
+    throw error;
+  }
+};
+
+// Routes
+app.get("/voice", async (req, res) => {
+  try {
+    const voices = await elevenlabs.voices.getAll();
+    res.send(voices);
+  } catch (error) {
+    console.error("Error fetching voices:", error);
+    res.status(500).json({ error: "Failed to fetch voices." });
+  }
+});
+
 app.post("/api/chat", async (req, res) => {
-    const { message } = req.body;
+  const { message } = req.body;
 
-    if (!message) {
-        return res.status(400).json({ error: "Message is required." });
+  if (!message) {
+    return res.status(400).json({ error: "Message is required." });
+  }
+
+  try {
+    const completion = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content:
+            "Yucca is an assistant chatbot that serves as Universitas Ciputra customer support and answers questions about Universitas Ciputra.",
+        },
+        { role: "user", content: message },
+      ],
+    });
+
+    // Extract the response content
+    const responseContent = completion.choices[0]?.message?.content;
+
+    if (!responseContent) {
+      throw new Error("No content returned from GPT.");
     }
 
-    try {
-        const completion = await openai.chat.completions.create({
-            model: "ft:gpt-3.5-turbo-0125:personal::Akb0PWXJ",
-            messages: [
-                { role: "system", "content": "Yucca is an assistant chatbot that serve as Universitas Ciputra customer support and answer question about Universitas Ciputra."},
-                { role: "user", content: message }
-            ],
-        });
+    console.log("Response content:", responseContent);
 
-        res.json({ response: completion.choices[0].message.content });
-    } catch (error) {
-        console.error("Error during GPT processing:", error);
-        res.status(500).json({ error: "Failed to process text." });
+    // Assuming the response content is a single string, split into parts if necessary
+    const messages = [responseContent]; // Split into an array if needed
+    const processedMessages = [];
+
+    for (let i = 0; i < messages.length; i++) {
+      const textInput = messages[i];
+      const fileName = `audios/message_${i}.mp3`;
+      console.log("File name:", fileName);
+      console.log("Text input:", textInput);
+
+      // Generate audio using ElevenLabs
+      const audio = await elevenlabs.generate({
+        voice: "Martas",
+        text: textInput,
+        model_id: "eleven_multilingual_v2",
+      });
+
+      // Write audio file
+      await fs.writeFile(fileName, audio);
+
+      // Generate lip-sync JSON
+      await lipSyncMessage(i);
+
+      // Add audio and lip-sync data
+      const messageData = {
+        text: textInput,
+        audio: await audioFileToBase64(fileName),
+        lipsync: await readJsonTranscript(`audios/message_${i}.json`),
+      };
+
+      processedMessages.push(messageData);
     }
+    res.send({ messages: processedMessages });
+  } catch (error) {
+    console.error("Error during GPT processing:", error);
+    res.status(500).json({ error: "Failed to process text." });
+  }
 });
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });
