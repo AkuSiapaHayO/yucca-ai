@@ -14,11 +14,11 @@ const PORT = 5000;
 // Initialize OpenAI with your API key
 const openai = new OpenAI({
   apiKey:
-    "OpenAI API key",
+    "API Key GPT",
 });
 
 const elevenlabs = new ElevenLabsClient({
-  apiKey: "ElevenLabs API key", // Defaults to process.env.ELEVENLABS_API_KEY
+  apiKey: "API eleven", // Defaults to process.env.ELEVENLABS_API_KEY
 });
 
 // Middleware

@@ -34,7 +34,7 @@ export function Yucca(props) {
       },
     });
 
-  const { message, audio: hookAudio, lipsync: hookLipsync } = useChat();
+  const { message, audio: hookAudio, lipsync: hookLipsync, loading} = useChat();
 
   const [audio, setAudio] = useState();
   const [lipsync, setLipsync] = useState();
@@ -76,6 +76,14 @@ export function Yucca(props) {
       setAnimation("Idle"); // Idle animation if no message or lipsync
     }
   }, [message, lipsync]);
+
+  useEffect(() => {
+    if (loading)  {
+      setAnimation("Thinking");
+    } else {
+      setAnimation("Idle");
+    }
+  }, [loading])
 
   useEffect(() => {
     actions[animation].reset().fadeIn(mixer.stats.actions.inUse === 0 ? 0 : 0.5).play();

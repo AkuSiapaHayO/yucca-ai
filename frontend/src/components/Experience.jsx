@@ -9,7 +9,7 @@ const Experience = () => {
   return (
     <>
       <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} />
-      <Yucca position={[0, -2.5, 1]} scale={0.8} />
+      <Yucca position={[0, -1.3, 1]} scale={0.6} />
       <Environment preset="lobby" />
       <mesh>
         <planeGeometry args={[viewport.width, viewport.height]} />
