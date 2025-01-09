@@ -14,13 +14,12 @@ const PORT = 5000;
 // Initialize OpenAI with your API key
 const openai = new OpenAI({
   apiKey:
-    "ChatGPT API key here",
+    "OpenAI API key",
 });
 
 const elevenlabs = new ElevenLabsClient({
-  apiKey: "Elevenlabs API key here", // Defaults to process.env.ELEVENLABS_API_KEY
+  apiKey: "ElevenLabs API key", // Defaults to process.env.ELEVENLABS_API_KEY
 });
-const voiceId = "ZWJROjmcIFwz9upnHIW5";
 
 // Middleware
 app.use(cors({ origin: "http://localhost:5173" })); // Adjust origin as needed
