@@ -10,48 +10,49 @@ export const ChatProvider = ({ children }) => {
   const [loading, setLoading] = useState(false); // Loading state
   const [listening, setListening] = useState(false); // Speech-to-Text state
   const [showHistory, setShowHistory] = useState(false); // Toggle chat history
-  const [lipsync, setLipsync] = useState(null); // Lipsync data (mouthCues)
+  const [lipsync, setLipsync] = useState([]); // Lipsync data (mouthCues)
   const [audio, setAudio] = useState(null); // Audio file URL for playback
-  const [message, setMessage] = useState(null); // Current message
+  const [message, setMessage] = useState(null); // Current bot message
 
+  // Handles message playback completion
   const onMessagePlayed = () => {
-    setMessages((messages) => messages.slice(1));
+    setMessages((prev) => prev.slice(1));
   };
 
-  // Handle user input submission
-  const chat = async (message) => {
-    if (!message.trim()) return;
+  // Function to send user input to the backend and receive a response
+  const chat = async (userMessage) => {
+    if (!userMessage.trim()) return;
 
     setLoading(true);
 
-    // Add user message to chat
-    setMessages((prev) => [...prev, { sender: "user", text: message }]);
-    console.log("messages at hook:", messages);
+    // Add user message to chat history
+    setMessages((prev) => [...prev, { sender: "user", text: userMessage }]);
 
     try {
-      const { data } = await axios.post(serverUrl, { message });
-      console.log("data at hook:", data);
+      const { data } = await axios.post(serverUrl, { message: userMessage });
+
+      const botResponse = data.messages[0]; // Assuming the first response is relevant
       const botMessage = {
         sender: "bot",
-        text: data.messages[0].text,
+        text: botResponse.text,
       };
 
-      // Update lipsync data with the response
-      setLipsync(data.messages[0].lipsync?.mouthCues || []);
-      setAudio(data.messages[0].audio); // Set audio URL for playback
-      setMessage(data.messages[0].text);
-      console.log("lipsync at hook:", lipsync);
-      console.log("audio at hook:", audio);
+      // Update lipsync data, audio URL, and bot message
+      setLipsync(botResponse.lipsync?.mouthCues || []);
+      setAudio(botResponse.audio || null);
+      setMessage(botResponse.text);
+
+      // Add bot message to chat history
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
       console.error("Error sending message:", error);
+    } finally {
+      setLoading(false);
+      setUserInput(""); // Clear input field
     }
-
-    setLoading(false);
-    setUserInput(""); // Clear input field
   };
 
-  // Speech-to-Text (STT)
+  // Handles Speech-to-Text recognition
   const startListening = () => {
     if (!("webkitSpeechRecognition" in window)) {
       alert("Speech recognition is not supported in this browser.");
@@ -59,7 +60,7 @@ export const ChatProvider = ({ children }) => {
     }
 
     const recognition = new window.webkitSpeechRecognition();
-    recognition.lang = "id-ID"; // Set to Bahasa Indonesia
+    recognition.lang = "id-ID"; // Set language to Bahasa Indonesia
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
@@ -68,7 +69,8 @@ export const ChatProvider = ({ children }) => {
 
     recognition.onresult = (event) => {
       const speechResult = event.results[0][0].transcript;
-      setUserInput(speechResult); // Set input to recognized speech
+      setUserInput(speechResult); // Set input field with recognized speech
+      chat(speechResult); // Automatically send the transcribed text
     };
 
     recognition.onerror = (event) => {
@@ -79,14 +81,15 @@ export const ChatProvider = ({ children }) => {
     recognition.start();
   };
 
-  //useEffect(() => {
-  //  if (messages.length > 0) {
-  //    setMessage(messages[0]); // Set the current message
-  //  } else {
-  //    setMessage(null);
-  //  }
-  //  console.log("message at hook:", message);
-  //}, [messages]);
+  useEffect(() => {
+    // Monitor and set the current bot message whenever the message history changes
+    if (messages.length > 0) {
+      const lastBotMessage = messages.find((msg) => msg.sender === "bot");
+      setMessage(lastBotMessage?.text || null);
+    } else {
+      setMessage(null);
+    }
+  }, [messages]);
 
   return (
     <ChatContext.Provider
@@ -100,9 +103,10 @@ export const ChatProvider = ({ children }) => {
         startListening,
         listening,
         loading,
-        lipsync, // Providing lipsync data to the context
-        message, // Providing the latest message
-        audio, // Providing the audio URL for playback
+        lipsync,
+        message,
+        audio,
+        onMessagePlayed, // Exposing the playback handler
       }}
     >
       {children}
@@ -117,3 +121,4 @@ export const useChat = () => {
   }
   return context;
 };
+
