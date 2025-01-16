@@ -13,27 +13,59 @@ import fs from 'fs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Load environment variables
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
 const VECTOR_STORE_PATH = join(__dirname, 'vectorstore');
+const KNOWLEDGE_BASE_DIR = join(__dirname, 'knowledge_base');
+const PROCESSED_FILES_PATH = join(__dirname, 'vectorstore', 'processed_files.json');
 let vectorStore = null;
 
-// Initialize OpenAI with GPT-4
 const model = new ChatOpenAI({
     openAIApiKey: process.env.OPENAI_API_KEY,
-    modelName: "gpt-4", // Specifically using GPT-4
+    modelName: "gpt-4",
     temperature: 0.7,
 });
 
-// Initialize embeddings with separate configuration
 const embeddings = new OpenAIEmbeddings({
     openAIApiKey: process.env.OPENAI_API_KEY,
-    modelName: "text-embedding-ada-002" // Using the recommended embeddings model
+    modelName: "text-embedding-ada-002"
 });
+
+// Function to load processed files list
+function loadProcessedFiles() {
+    try {
+        if (fs.existsSync(PROCESSED_FILES_PATH)) {
+            const data = fs.readFileSync(PROCESSED_FILES_PATH, 'utf8');
+            const parsed = JSON.parse(data);
+            // Ensure files property exists and is an array
+            if (!parsed.files || !Array.isArray(parsed.files)) {
+                console.log('Invalid processed files format, resetting to empty array');
+                return { files: [] };
+            }
+            return parsed;
+        }
+    } catch (error) {
+        console.error('Error loading processed files:', error);
+    }
+    return { files: [] };
+}
+
+// Function to save processed files list
+function saveProcessedFiles(files) {
+    try {
+        if (!fs.existsSync(VECTOR_STORE_PATH)) {
+            fs.mkdirSync(VECTOR_STORE_PATH, { recursive: true });
+        }
+        // Ensure we're saving a valid structure
+        const dataToSave = { files: Array.isArray(files.files) ? files.files : [] };
+        fs.writeFileSync(PROCESSED_FILES_PATH, JSON.stringify(dataToSave, null, 2));
+    } catch (error) {
+        console.error('Error saving processed files:', error);
+    }
+}
 
 // Function to check if vector store exists
 function vectorStoreExists() {
@@ -42,10 +74,76 @@ function vectorStoreExists() {
            fs.existsSync(join(VECTOR_STORE_PATH, 'docstore.json'));
 }
 
+// Function to get file hash (using last modified time as simple hash)
+function getFileHash(filePath) {
+    const stats = fs.statSync(filePath);
+    return `${filePath}-${stats.mtime.getTime()}`;
+}
+
+// Function to load new text files
+async function loadNewTextFiles() {
+    if (!fs.existsSync(KNOWLEDGE_BASE_DIR)) {
+        fs.mkdirSync(KNOWLEDGE_BASE_DIR);
+        console.log('Created knowledge_base directory');
+    }
+
+    const files = fs.readdirSync(KNOWLEDGE_BASE_DIR);
+    const textFiles = files.filter(file => file.endsWith('.txt'));
+    
+    const processedFiles = loadProcessedFiles();
+    console.log('Loaded processed files:', processedFiles);
+
+    // Ensure processedFiles.files is an array
+    if (!Array.isArray(processedFiles.files)) {
+        console.log('Processed files is not an array, resetting');
+        processedFiles.files = [];
+    }
+
+    const processedHashes = new Set(processedFiles.files);
+    console.log('Created Set from processed files');
+
+    const newFiles = textFiles.filter(file => {
+        const filePath = join(KNOWLEDGE_BASE_DIR, file);
+        const fileHash = getFileHash(filePath);
+        return !processedHashes.has(fileHash);
+    });
+
+    if (newFiles.length === 0) {
+        console.log('No new files to process');
+        return null;
+    }
+
+    console.log(`Found ${newFiles.length} new files:`, newFiles);
+    
+    let allDocs = [];
+    let newHashes = [];
+    
+    for (const file of newFiles) {
+        const filePath = join(KNOWLEDGE_BASE_DIR, file);
+        const fileHash = getFileHash(filePath);
+        console.log(`Loading file: ${file}`);
+        const loader = new TextLoader(filePath);
+        const docs = await loader.load();
+        allDocs = allDocs.concat(docs);
+        newHashes.push(fileHash);
+    }
+    
+    // Update processed files list
+    processedFiles.files = [...processedFiles.files, ...newHashes];
+    saveProcessedFiles(processedFiles);
+    
+    return allDocs;
+}
+
 // Initialize knowledge base
 async function initializeKnowledgeBase(forceReload = false) {
     try {
-        // Check for existing vector store
+        // For force reload, clear the processed files list
+        if (forceReload) {
+            saveProcessedFiles({ files: [] });
+        }
+
+        // Load or create vector store
         if (!forceReload && vectorStoreExists()) {
             console.log('Loading existing vector store from disk...');
             vectorStore = await FaissStore.load(
@@ -53,34 +151,44 @@ async function initializeKnowledgeBase(forceReload = false) {
                 embeddings
             );
             console.log('Vector store loaded successfully');
-            return true;
+        } else {
+            vectorStore = null;
         }
 
-        // Load the local kb.txt file
-        const filePath = join(__dirname, 'kb.txt');
-        console.log('Loading knowledge base from:', filePath);
+        // Load new documents
+        const newDocs = await loadNewTextFiles();
         
-        const loader = new TextLoader(filePath);
-        const docs = await loader.load();
-        console.log('Documents loaded successfully');
+        if (newDocs) {
+            console.log(`Processing ${newDocs.length} new documents`);
+            
+            // Split documents into chunks
+            const textSplitter = new RecursiveCharacterTextSplitter({
+                chunkSize: 1000,
+                chunkOverlap: 200,
+            });
+            const splitDocs = await textSplitter.splitDocuments(newDocs);
+            console.log('Documents split into', splitDocs.length, 'chunks');
 
-        // Split documents into chunks
-        const textSplitter = new RecursiveCharacterTextSplitter({
-            chunkSize: 1000,
-            chunkOverlap: 200,
-        });
-        const splitDocs = await textSplitter.splitDocuments(docs);
-        console.log('Documents split into', splitDocs.length, 'chunks');
+            // Create or extend vector store
+            if (vectorStore) {
+                // Add new documents to existing store
+                await vectorStore.addDocuments(splitDocs);
+                console.log('Added new documents to existing vector store');
+            } else {
+                // Create new store
+                vectorStore = await FaissStore.fromDocuments(
+                    splitDocs,
+                    embeddings
+                );
+                console.log('Created new vector store');
+            }
 
-        // Create vector store
-        vectorStore = await FaissStore.fromDocuments(
-            splitDocs,
-            embeddings
-        );
-
-        // Save to disk
-        await vectorStore.save(VECTOR_STORE_PATH);
-        console.log('Vector store created and saved successfully');
+            // Save to disk
+            await vectorStore.save(VECTOR_STORE_PATH);
+            console.log('Vector store saved successfully');
+        } else if (!vectorStore) {
+            throw new Error('No existing vector store and no documents to process');
+        }
 
         return true;
     } catch (error) {
@@ -89,11 +197,10 @@ async function initializeKnowledgeBase(forceReload = false) {
     }
 }
 
-// Endpoint to initialize knowledge base
+// Rest of your existing endpoints remain the same...
 app.post('/api/init', async (req, res) => {
     try {
-        const success = await initializeKnowledgeBase(true); // Force reload
-        
+        const success = await initializeKnowledgeBase(true);
         if (success) {
             res.json({ message: 'Knowledge base initialized successfully' });
         } else {
@@ -105,7 +212,6 @@ app.post('/api/init', async (req, res) => {
     }
 });
 
-// Endpoint to chat
 app.post('/api/chat', async (req, res) => {
     try {
         const { message } = req.body;
@@ -118,25 +224,36 @@ app.post('/api/chat', async (req, res) => {
             return res.status(400).json({ error: 'Knowledge base not initialized' });
         }
 
-        // Create a chain that combines the knowledge base with the language model
         const chain = RetrievalQAChain.fromLLM(model, vectorStore.asRetriever(), {
-            returnSourceDocuments: true, // Include source documents in the response
-            verbose: true // For debugging purposes
+            returnSourceDocuments: true,
+            verbose: true
         });
 
-        // Get response from the chain
         const response = await chain.call({
             query: message
         });
 
         res.json({ 
             response: response.text,
-            // You can uncomment the following line if you want to see the source documents
-            // sources: response.sourceDocuments 
         });
     } catch (error) {
         console.error('Error processing chat:', error);
         res.status(500).json({ error: 'Failed to process chat message' });
+    }
+});
+
+// Add new endpoint to process only new files
+app.post('/api/update', async (req, res) => {
+    try {
+        const success = await initializeKnowledgeBase(false); // Don't force reload
+        if (success) {
+            res.json({ message: 'Knowledge base updated successfully' });
+        } else {
+            res.status(500).json({ error: 'Failed to update knowledge base' });
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'Failed to update knowledge base' });
     }
 });
 
@@ -148,5 +265,5 @@ app.listen(PORT, async () => {
     console.log('Initializing knowledge base...');
     await initializeKnowledgeBase();
     console.log(`Server ready for queries`);
-    console.log(`Make sure kb.txt is in the same directory as server.js`);
+    console.log(`Place new .txt files in the 'knowledge_base' directory`);
 });

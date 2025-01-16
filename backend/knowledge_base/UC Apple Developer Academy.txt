@@ -1,0 +1,100 @@
+UC Apple Developer Academy
+Tentang Apple Developer Academy:
+Apple Developer Academy merupakan program pelatihan unggulan yang bertujuan untuk memberikan wawasan, keterampilan, dan pengalaman kepada para pengusaha, desainer, dan pengembang dalam menciptakan aplikasi untuk ekosistem Apple, khususnya iOS. Program ini pertama kali diluncurkan di Brasil pada tahun 2013 dan sejak saat itu berkembang di berbagai negara, termasuk Indonesia.
+
+Di Surabaya, program ini dijalankan melalui kerja sama antara Apple dan Universitas Ciputra (UC), yang menyediakan fasilitas modern dan dukungan akademik untuk membantu peserta mengembangkan keterampilan mereka.
+
+Pengertian UC Apple Developer Academy:
+UC Apple Developer Academy adalah program yang dirancang untuk mencetak pengembang kelas dunia bagi ekosistem Apple. Program ini berlangsung selama 10 bulan dan menggunakan pendekatan Challenge-Based Learning (CBL) untuk membantu peserta mengembangkan keterampilan teknologi, desain, dan bisnis.
+
+Program ini dirancang untuk mendorong kreativitas, kolaborasi, dan inovasi, sehingga peserta tidak hanya belajar menjadi pemrogram tetapi juga seorang inovator yang siap terjun ke dunia industri teknologi.
+
+Sejarah Terbentuknya UC Apple Developer Academy:
+- Tahun Peluncuran di UC: Akademi ini mulai bekerja sama dengan Universitas Ciputra pada tanggal 7 Agustus 2019 , menjadi salah satu dari sedikit lokasi di Indonesia yang menyelenggarakan program ini.
+- Tujuan Utama: Memberikan peluang bagi mahasiswa dan profesional di Surabaya untuk terlibat dalam pengembangan teknologi berbasis Apple.
+- Kemitraan dengan Apple: Kerja sama ini memastikan bahwa kurikulum, metode pengajaran, dan fasilitas di UC Apple Developer Academy sesuai dengan standar global Apple.
+
+Proses Masuk di UC Apple Developer Academy:
+- Syarat Pendaftaran:
+ 1. Memiliki usia minimal 18 tahun.
+ 2. Terbuka untuk berbagai latar belakang pendidikan, baik dari teknologi informasi, desain, maupun bidang lainnya.
+ 3. Memiliki kemampuan dasar menggunakan komputer.
+
+- Tahapan Seleksi:
+ 1. Pengisian Formulir Online: Calon peserta harus mendaftar melalui portal resmi UC Apple Developer Academy.
+ 2. Tes Kemampuan: Meliputi penilaian logika, pemrograman dasar (jika ada), dan wawasan teknologi.
+ 3. Wawancara: Menggali motivasi dan komitmen peserta dalam mengikuti program.
+ 4. Pengumuman: Peserta yang lolos seleksi akan diumumkan melalui email atau portal resmi.
+
+- Waktu Pendaftaran:
+Pendaftaran untuk Cohort 2026 dibuka pada bulan Maret 2025. Informasi lebih lanjut dapat diperoleh melalui situs web Universitas Ciputra atau media sosial resmi UC Apple Developer Academy.
+
+Peserta:
+Program terbuka untuk warga negara Indonesia berusia 18 tahun ke atas dari berbagai latar belakang pendidikan. Tidak diperlukan kemampuan coding sebelumnya.
+
+Jumlah penerimaan:
+UC Apple Developer Academy menerima 100 peserta pada tiap batchnya.
+
+Keuntungan Bergabung dengan UC Apple Developer Academy:
+1. Pengakuan Internasional:
+Program ini didukung oleh Apple, menjadikannya salah satu pelatihan teknologi yang diakui secara global.
+2. Keterampilan Siap Kerja:
+Peserta akan menguasai teknologi terbaru dan keterampilan yang relevan di dunia industri.
+3. Jaringan Profesional:
+Kesempatan untuk terhubung dengan mentor, pengembang, dan profesional teknologi dari berbagai latar belakang.
+4. Dukungan Fasilitas:
+Menggunakan perangkat Apple terbaru, seperti MacBook dan iPhone, selama pelatihan.
+5. Portofolio dan Pengalaman Nyata:
+Setiap peserta akan menyelesaikan proyek aplikasi yang dapat dipamerkan sebagai portofolio kerja.
+6. Peluang Karir:
+Peserta memiliki kesempatan untuk bekerja di perusahaan teknologi, menjadi entrepreneur, atau mengembangkan startup sendiri.
+
+Output Program:
+- Pengembangan aplikasi berbasis iOS.
+- Portofolio profesional.
+- Keterampilan teknologi, desain, dan bisnis yang relevan.
+
+Kurikulum dan Pembelajaran:
+- Menggunakan metode Challenge-Based Learning (CBL) untuk melatih peserta dalam:
+  1. Teknologi: Pemrograman dengan Swift dan Xcode.
+  2. Desain: Penerapan prinsip UI/UX berbasis kebutuhan pengguna.
+  3. Bisnis: Penyusunan model bisnis untuk aplikasi.
+
+Lokasi:
+UC Apple Developer Academy terletak di lantai 7 UC Tower, Universitas Ciputra Surabaya.
+
+Biaya:
+UC Apple Developer Academy tidak dipungut memungut biaya terkait pendaftaran.
+
+Durasi:
+Program UC Apple Developer Academy berlangsung selama 10 bulan, biasanya akan dimulai pada bulan Februari - Desember. Anda akan beraktivitas selama 20 jam per minggu (4 jam per hari sesuai dengan Waktu yang ditentukan), dari hari Senin hingga Jumat. Akan tersedia 2 shift, yaitu:
+ 1. Shift pagi (08.00 - 12.00) WIB. Direkomendasikan untuk mahasiswa tahun terakhir, mahasiswa yang baru lulus kuliah, atau professional.
+ 2. Shift siang (13.30 - 17.30 ) WIB. Direkomendasikan untuk mahasiswa semester 6 atau lebih tinggi. 
+
+Fasilitas yang Disediakan:
+- MacBook Pro dan iPhone selama program berlangsung.
+- Sertifikat Penyelesaian setelah menyelesaikan program.
+
+Apple Foundation Program:
+Pengertian:
+Apple Foundation Program adalah program pelatihan singkat yang dirancang oleh Apple untuk memperkenalkan peserta pada dasar-dasar pengembangan aplikasi dan ekosistem teknologi Apple. Program ini ditujukan bagi individu dengan berbagai latar belakang, baik yang memiliki pengalaman di bidang teknologi maupun yang sama sekali baru mengenal pengembangan aplikasi.
+
+Tujuan Apple Foundation Program:
+1. Memberikan Dasar Pengetahuan: Membekali peserta dengan pemahaman awal tentang teknologi Apple, termasuk desain, pemrograman, dan pengembangan aplikasi.
+2. Mendorong Kreativitas: Menginspirasi peserta untuk menciptakan ide-ide inovatif dan menjadikannya solusi yang relevan bagi masyarakat.
+3. Menumbuhkan Kolaborasi: Mengajarkan pentingnya kerja sama tim lintas disiplin (teknologi, desain, dan bisnis) dalam mengembangkan aplikasi.
+4. Mempersiapkan untuk Tahap Selanjutnya: Menjadi langkah awal sebelum mengikuti program yang lebih intensif seperti Apple Developer Academy.
+
+Durasi:
+Apple Foundation Program biasanya berlangsung selama 1 bulan, dilaksanakan pada hari Senin hingga Jumat dari jam 08.00 - 12.00 WIB dan dilaksanakan secara offline di UC Apple Developer Academy.
+
+Jumlah penerimaan:
+Apple Foundation Program hanya menerima 25 peserta pada tiap batchnya. Dalam 1 tahun bisa berlangsung beberapa batch.
+
+Pendaftaran Apple Foundation Program:
+informasi pendaftaran untuk batch selanjutnya masih belum diketahui. Untuk informasi lebih lanjut bisa merujuk ke website UC Apple Developer Academy melalui link https://appledeveloperacademy.uc.ac.id/ .
+
+Kontak:
+- Email: appledeveloperacademy@ciputra.ac.id
+- Instagram: uc_appledeveloperacademy
+- Whatsapp: +62-822-6473-3922
