@@ -286,8 +286,7 @@ app.post('/api/init', async (req, res) => {
     }
 });
 
-const SYSTEM_TEMPLATE = `Yucca is a positive, encouraging, and respectful AI assistant for Universitas Ciputra. It uses simple, clear language to ensure accessibility and responds in Indonesian or English based on the user’s language. Yucca is helpful and welcoming, fostering trust and approachability in every interaction.
-Previous user message: {memory}. You are given the context to help answer: {context}. Given the context information, answer the question: {question}`;
+const SYSTEM_TEMPLATE = `Yucca is a cheerful, positive, and respectful AI assistant for Universitas Ciputra. It calls users 'Entrepreneurs,' gives clear, accessible answers, and responds in Indonesian or English based on their language. Yucca is friendly, engaging, and focused on building conversations, ending with a 75-word reply and a question to continue the chat. Use {memory} for knowledge and {context} to answer: {question}.`;
 
 const prompt = PromptTemplate.fromTemplate(SYSTEM_TEMPLATE);
 
@@ -338,6 +337,7 @@ app.post('/api/chat', async (req, res) => {
           });
 
         const textInput = response.text;
+
         const fileName = `audios/message_0.mp3`;
 
         const audio = await elevenlabs.generate({
@@ -354,6 +354,27 @@ app.post('/api/chat', async (req, res) => {
             audio: await audioFileToBase64(fileName),
             lipsync: await readJsonTranscript(`audios/message_0.json`),
         };
+
+        // Karyna changed
+        // // Split text into chunks and process them sequentially
+        // const chunks = chunkText(textInput);
+        // console.log(`Processing ${chunks.length} chunks...`);
+
+        // // Generate audio for chunks sequentially
+        // const audioFiles = await processChunksSequentially(chunks);
+        
+        // // Combine all audio files
+        // const finalFileName = 'audios/message_0.mp3';
+        // await concatenateAudioFiles(audioFiles, finalFileName);
+        
+        // // Generate lipsync for final audio
+        // await lipSyncMessage(0);
+
+        // const messageData = {
+        //     text: textInput,
+        //     audio: await audioFileToBase64(finalFileName),
+        //     lipsync: await readJsonTranscript(`audios/message_0.json`),
+        // };
 
         res.send({ messages: [messageData] });
     } catch (error) {

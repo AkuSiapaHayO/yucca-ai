@@ -112,7 +112,7 @@ const Interface = () => {
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend(userInput)}
-              placeholder="Type your message..."
+              placeholder="Ask Yucca a Question!"
               style={{
                 flexGrow: 1,
                 padding: "8px",
@@ -122,6 +122,7 @@ const Interface = () => {
                 fontSize: "14px",
                 boxSizing: "border-box",
                 backgroundColor: "#FFE3C3",
+                fontFamily: "'Poppins', sans-serif",
               }}
             />
             <button
