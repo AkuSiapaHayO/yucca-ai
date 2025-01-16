@@ -1,0 +1,3 @@
+Universitas Ciputra mempunyai 2 gedung, gedung pertama adalah gedung lama atau disebut UC main building dengan tinggi 7 lantai, sedangkan gedung kedua biasa disebut UC Tower dengan tinggi 24 lantai. Apple Developer Academy milik UC berada di UC Tower lantai 7.
+
+Disekitar gedung Universitas Ciputra terdapat 3 apartemen yaitu Denver, Berkeley, dan Cornell.
