@@ -21,10 +21,6 @@ import { exec } from 'child_process';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const memoryStore = new Map();
-
-const createMemoryKey = (userId = 'default') => `memory_${userId}`;
-
 dotenv.config();
 
 const app = express();
@@ -219,6 +215,62 @@ async function initializeKnowledgeBase(forceReload = false) {
     }
 }
 
+const MEMORY_FILE_PATH = join(__dirname, 'chat_memory.json');
+const MAX_WORDS = 100;
+
+app.post('/api/clear-memory', async (req, res) => {
+  try {
+      const emptyMemory = {
+          userMessages: []
+      };
+      
+      await saveMemory(emptyMemory);
+      
+      res.json({ message: 'Chat memory cleared successfully' });
+  } catch (error) {
+      console.error('Error clearing memory:', error);
+      res.status(500).json({ error: 'Failed to clear chat memory' });
+  }
+});
+
+async function loadMemory() {
+  try {
+      if (await fs.access(MEMORY_FILE_PATH).then(() => true).catch(() => false)) {
+          const data = await fs.readFile(MEMORY_FILE_PATH, 'utf8');
+          return JSON.parse(data);
+      }
+  } catch (error) {
+      console.error('Error loading memory:', error);
+  }
+  return { userMessages: [] };  // Changed from conversations to userMessages
+}
+
+async function saveMemory(memory) {
+  try {
+      await fs.writeFile(MEMORY_FILE_PATH, JSON.stringify(memory, null, 2));
+  } catch (error) {
+      console.error('Error saving memory:', error);
+  }
+}
+
+function truncateMemory(messages) {
+  let wordCount = 0;
+  const truncatedMessages = [];
+  
+  // Start from the most recent messages
+  for (let i = messages.length - 1; i >= 0; i--) {
+      const words = messages[i].message.split(/\s+/).length;
+      if (wordCount + words <= MAX_WORDS) {
+          truncatedMessages.unshift(messages[i]);
+          wordCount += words;
+      } else {
+          break;
+      }
+  }
+  
+  return truncatedMessages;
+}
+
 // API Endpoints
 app.post('/api/init', async (req, res) => {
     try {
@@ -235,7 +287,7 @@ app.post('/api/init', async (req, res) => {
 });
 
 const SYSTEM_TEMPLATE = `Yucca is a positive, encouraging, and respectful AI assistant for Universitas Ciputra. It uses simple, clear language to ensure accessibility and responds in Indonesian or English based on the user’s language. Yucca is helpful and welcoming, fostering trust and approachability in every interaction.
-You are given the context to help answer: {context}. Given the context information, answer the question: {question}`;
+Previous user message: {memory}. You are given the context to help answer: {context}. Given the context information, answer the question: {question}`;
 
 const prompt = PromptTemplate.fromTemplate(SYSTEM_TEMPLATE);
 
@@ -251,6 +303,24 @@ app.post('/api/chat', async (req, res) => {
             return res.status(400).json({ error: 'Knowledge base not initialized' });
         }
 
+        // Load and update memory
+        const memory = await loadMemory();
+        memory.userMessages.push({
+            timestamp: new Date().toISOString(),
+            message: message
+        });
+        
+        // Truncate memory to keep only recent messages within word limit
+        memory.userMessages = truncateMemory(memory.userMessages);
+        await saveMemory(memory);
+
+        // Format memory for prompt
+        const memoryContext = memory.userMessages
+            .map(msg => `User asked: ${msg.message}`)
+            .join('\n');
+
+        const prompt = PromptTemplate.fromTemplate(SYSTEM_TEMPLATE);
+
         const chain = RetrievalQAChain.fromLLM(
             model,
             vectorStore.asRetriever(),
@@ -263,8 +333,9 @@ app.post('/api/chat', async (req, res) => {
 
         const response = await chain.call({ 
             query: message,
-            question: message  // The prompt template expects 'question' as the variable name
-        });
+            question: message,  // The prompt template expects 'question' as the variable name
+            memory: memoryContext || "No previous questions"
+          });
 
         const textInput = response.text;
         const fileName = `audios/message_0.mp3`;
