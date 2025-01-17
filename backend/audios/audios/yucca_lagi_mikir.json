@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "soundFile": "/home/abuku/projects/ai/yucca-ai/backend/audios/yucca_lagi_mikir.wav",
+    "duration": 2.22
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.01, "value": "X" },
+    { "start": 0.01, "end": 0.07, "value": "B" },
+    { "start": 0.07, "end": 0.12, "value": "A" },
+    { "start": 0.12, "end": 0.68, "value": "C" },
+    { "start": 0.68, "end": 0.75, "value": "F" },
+    { "start": 0.75, "end": 0.83, "value": "A" },
+    { "start": 0.83, "end": 1.19, "value": "C" },
+    { "start": 1.19, "end": 1.40, "value": "B" },
+    { "start": 1.40, "end": 1.42, "value": "A" },
+    { "start": 1.42, "end": 1.50, "value": "B" },
+    { "start": 1.50, "end": 1.57, "value": "A" },
+    { "start": 1.57, "end": 1.86, "value": "B" },
+    { "start": 1.86, "end": 2.00, "value": "C" },
+    { "start": 2.00, "end": 2.22, "value": "X" }
+  ]
+}

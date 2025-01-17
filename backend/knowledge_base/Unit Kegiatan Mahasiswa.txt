@@ -1,0 +1,528 @@
+Unit Kegiatan Mahasiswa
+Pengertian:
+Unit Kegiatan Mahasiswa atau yang biasa disebut dengan UKM merupakan wadah bagi para mahasiswa Universitas Ciputra Surabaya untuk menyalurkan hobi dan bakat masing-masing di berbagai yang tersedia.
+Tak hanya sebagai tempat penyaluran hobi, mahasiswa juga mendapatkan komunitas dari setiap UKM yang diikutinya.
+
+Daftar UKM:
+- Abstract:
+ - Pengertian:
+  ABSTRACT adalah wadah kreatif yang memadukan musik etnik dengan sentuhan modern, terbuka untuk semua genre musik. Di sini, setiap anggota bebas belajar dan berkreasi, menjelajahi berbagai genre sambil menjaga akar tradisi. Dengan berbagai program seperti workshop dan pertunjukan, ABSTRACT mendorong kolaborasi lintas genre dan pengembangan bakat dalam atmosfer yang terbuka dan penuh kebebasan.
+
+ - Struktur:
+  - Pembina: Ersa Lanang Sanjaya, S.Psi., M.Si.
+  - Ketua: Zaky Glow
+  - Wakil Ketua: Titania Rendy Callista
+  - Sekretaris/Bendahara: Putu Ayu Kanaya Chanda Maheswari
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Titania (+62 821-1963-6705)
+  - Instagram: @abstract_id
+
+ - Jadwal Kegiatan:
+  Setiap Selasa: 18.30 - 21.00 WIB
+
+ - Lokasi Kegiatan:
+  UC Plaza
+
+- Resonance:
+ - Pengertian:
+  Resonance adalah sebuah Unit Kegiatan Mahasiswa (UKM) yang bergerak di bidang seni musik di Universitas Ciputra, Surabaya. UKM ini didirikan dengan tujuan untuk mewadahi minat dan bakat mahasiswa dalam bidang musik, serta untuk mengembangkan potensi dan kreativitas mereka melalui berbagai kegiatan musik.
+
+ - Struktur:
+  - Pembina: Hendra Utomo S.E., M.M.
+  - Ketua: Jason Theodore
+  - Sekretaris/Bendahara: Teresa Tania
+  - PDD: Aron Jordhy
+  - Inventory: Vanessa Aprillia
+  - Event: Sherryl Jocelyn
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Tere (+62 851-6280-3120)
+  - Instagram: @resonance_world
+
+ - Jadwal Kegiatan:
+  Setiap Rabu: 18.00 - 20.00 WIB
+
+ - Lokasi Kegiatan:
+  Ruangan 307-308
+
+- UC Choir:
+ - Pengertian:
+  UC Choir adalah Unit Kegiatan Mahasiswa (UKM) di Universitas Ciputra yang berfokus pada pengembangan minat dan bakat mahasiswa dalam bidang musik, khususnya paduan suara. Tujuan dari UKM ini adalah untuk meningkatkan keterampilan anggotanya dan membawa nama baik Universitas Ciputra melalui prestasi di bidang musik.
+
+ - Struktur:
+  - Ketua: Ellen
+  - Wakil Ketua: Raymond
+  - Sekretaris: Michelle
+  - Bendahara: Rachel
+  - Koor Humas: Riska
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Riska (+62 857-1381-6473)
+  - Instagram: @uc.choir
+
+ - Jadwal Kegiatan:
+  Setiap Selasa & Jumat: 17.30 – 20.00 WIB
+
+ - Lokasi Kegiatan:
+  Ruangan 515
+
+- Tari Tradisional:
+ - Pengertian:
+  UKM Tari Tradisional di Universitas Ciputra adalah wadah bagi mahasiswa yang memiliki minat dalam seni tari tradisional Indonesia. Tujuan utama UKM ini adalah memberikan kesempatan kepada mahasiswa untuk menyalurkan bakat mereka dalam seni tari tradisional serta memperkenalkan kebudayaan Indonesia melalui pertunjukan tari.
+
+ - Struktur:
+  - Pembina: Cecilia Trapsiwi Resti Palupi S.S
+  - Ketua: Intan Permata Sari
+  - Sekretaris/Bendahara: Ayesha Shaira
+  - Anggota: Widya Salsabilla
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Intan (+62 822-2867-3621)
+  - Instagram: @taritraditionaluc
+
+ - Jadwal Kegiatan:
+  Setiap Selasa: 16.00 - 18.00 WIB
+ 
+ - Lokasi Kegiatan:
+  Mezzanine Universitas Ciputra
+
+- Big Dance Crew (BDC):
+ - Pengertian:
+  Big Dance Crew (BDC) adalah Unit Kegiatan Mahasiswa (UKM) di Universitas Ciputra yang didirikan pada tahun 2007. BDC berfungsi sebagai wadah bagi mahasiswa untuk mengembangkan bakat dan minat dalam seni tari modern. Selain itu, BDC juga fokus pada pengembangan keterampilan seperti pembuatan konsep, koreografi, dan pengeditan lagu, serta soft skill seperti berpikir kritis, kreativitas, dan kerja tim. 
+
+ - Struktur:
+  - Pembina: Novie Octavia Soeharjo S.S
+  - Ketua: Kimberly Brennan Winaryo
+  - Sekretaris/Bendahara: Tiffanny Odelia Hutasoit
+  - Koor PDD Design: Renita Cahyo
+  - Koor PDD Dokum: Dinda Ajeng M.
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Kim (+62 813-3199-2716)
+  - Instagram: @uc.bdc
+
+ - Jadwal Kegiatan:
+  Setiap Rabu & Jumat: 15.00 – 22.00 WIB
+ 
+ - Lokasi Kegiatan:
+  Mezzanine Universitas Ciputra
+
+- Teater Gemintang:
+ - Pengertian:
+  Teater Gemintang adalah Unit Kegiatan Mahasiswa (UKM) di Universitas Ciputra yang berfokus pada seni pertunjukan teater. UKM ini menjadi wadah bagi mahasiswa untuk mempelajari dan mengembangkan keterampilan dalam seni peran, baik di depan panggung maupun di belakang layar, dengan tujuan meningkatkan kreativitas dan aktualisasi diri. 
+
+ - Struktur:
+  - Pembina: Aditya Indra Christianto, S.IP.
+  - Ketua: A. Adryan
+  - Sekretaris: Dwinda Audia
+  - Bendahara: Rajni Akira
+  - Koordinator Humas:
+   - Marcelino K.
+   - Alviansyah
+  - Koordinator Litbang (Penelitian dan Pengembangan):
+   - Melia C.
+   - Abyan Zafran
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Adryan (+62 817-0232-678)
+  - Instagram: @jasagemintang.uc
+
+ - Jadwal Kegiatan:
+  Setiap Selasa: 18.00 – 20.00 WIB
+ 
+ - Lokasi Kegiatan:
+  Mezzanine Universitas Ciputra
+
+- Universitas Ciputra Buddhist Community (UCBC):
+ - Pengertian:
+  Universitas Ciputra Buddhist Community (UCBC) adalah Unit Kegiatan Mahasiswa (UKM) yang menjadi wadah bagi mahasiswa beragama Buddha di Universitas Ciputra. UCBC bertujuan untuk mempererat hubungan antaranggota melalui berbagai kegiatan keagamaan dan sosial.
+
+ - Struktur:
+  - Pembina: Enrico S.Sn., M.Ds.
+  - Ketua: Ardelia Mettasari T.
+  - Wakil Ketua: Leslie Tanesa
+  - Sekretaris & Bendahara: Tiffany Maylinda L.
+  - Koordinator Humas: Febiana Lia C.
+  - Koordinator Event: Lavenia Sentoso G.
+  - Koordinator Publikasi & Dokumentasi: Evelyn
+  - Koordinator Inventory: Marvel Owen H.
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Metta (+62 852-5504-0881)
+  - Instagram: @ucbc_
+
+ - Jadwal Kegiatan:
+  Setiap Selasa: 17.00 – 19.00 WIB
+ 
+ - Lokasi Kegiatan:
+  Theater lt. 7
+
+- Persekutuan Mahasiswa Kristen (PMK):
+ - Pengertian:
+  Persekutuan Mahasiswa Kristen (PMK) adalah Unit Kegiatan Mahasiswa di Universitas Ciputra Surabaya sebagai komunitas kristen, antar mahasiswa/i di Universitas Ciputra yang bergerak secara non denominasional dengan tujuan untuk memperlengkapi mahasiswa Kristen untuk bisa menjadi teladan dan berguna bagi lingkungan universitas dan negara.
+
+ - Struktur:
+  - Pembina:
+   - Tulus P. Sihombing, S.IP
+   - Prof. Dr. Jimmy Ellya Kurniawan, S.Psi., M.Si., Psikolog
+   - Livia Yuliawati, S.Psi., M.A., Ph.D., CLC
+  - Ketua: Suryanto
+  - Wakil Ketua: Nazneen Olexa
+  - Sekretaris dan Bendahara: Felicia Angelica Gunawan
+  - Koordinator Public Relations: Jessica Kezia Amanda
+  - Koordinator People Service: Ashley Cecilia Nugroho
+  - Koordinator Prayer: Christine Hery Saputra
+  - Koordinator Praise and Worship:
+   - Emmanuelle Valerian Anandayu
+   - Florenza Sundjojo
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Surya (+62 856-5590-0688)
+  - Instagram: @pmk_uc
+
+ - Jadwal Kegiatan:
+  Setiap Senin: 15.00 – 21.00 WIB
+ 
+ - Lokasi Kegiatan:
+  Theater Lantai 9
+
+- Keluarga Mahasiswa Katolik (KMK):
+ - Pengertian:
+  UKM Keluarga Mahasiswa Katolik (KMK) merupakan sebuah komunitas bagi mahasiswa-mahasiswi Katolik Universitas Ciputra yang ingin mempererat tali persaudaraan dengan saudara-saudari seiman, memuji dan memuliakan Tuhan, serta memperdalam iman akan Katolik agar bisa menjadi pribadi yang serupa dengan Kristus. Diharapkan kegiatan-kegiatan yang diselenggarakan oleh UKM Keluarga Mahasiswa Katolik ini dapat membawa perubahan dalam diri masing-masing anggota ke arah yang lebih baik, di mana para anggota dapat menerapkan ajaran Yesus dalam kehidupan sehari-hari sehingga dapat menjadi berkat bagi sesama.
+
+ - Struktur:
+  - Pembina: Laji Victor Effendi, S.E., M.A., CMA.
+  - Ketua: Maria Roosa Agustin Prita P.
+  - Sekretaris & Bendahara: Evelin Alin Natadjadja
+   - Koordinator dan Divisi:
+    - Koordinator LNM (Liturgi dan Non-Misa): Brialny Vany Victoria Agatho
+    - Anggota Divisi LNM:
+     - Talitha Calin Widjaja
+    - Koordinator CSD (Community Service and Development): Estefania Raine Wiharto
+    - Anggota Divisi CSD:
+     - Dana Carmelita Devaga Rueng
+     - Michelle Stephanie Wijaya
+    - Koordinator PNW (Pelayanan dan Worship): Silviani Margaretha
+    - Anggota Divisi PNW:
+     - Fiona Anastasia Novita
+     - Silviana Margaretha
+    - Koordinator PDD (Publikasi dan Dokumentasi): Antonia Nicoletta Inawan
+    - Anggota Divisi PDD:
+     - Francesca Marcelina Clementine
+     - Angelina Widargo
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Pvita (+62 812-5966-3186)
+  - Instagram: @kmkuc
+
+ - Jadwal Kegiatan:
+  Setiap Selasa: 16:45-19:00 WIB
+ 
+ - Lokasi Kegiatan:
+  Theater Lantai 9
+
+- Moslem Community Universitas Ciputra (MCUC):
+ - Pengertian:
+  Moslem Community Universitas Ciputra (MCUC) dibentuk sebagai wadah bagi mahasiswa Muslim untuk mengembangkan keimanan dan spiritualitas mereka, sejalan dengan visi universitas yang berkomitmen mencetak lulusan berintegritas tinggi.
+
+ - Struktur:
+  - Pembina: Suryadi Kusniawan, S.Hum., M.Hum.
+  - Ketua: Muhammad Naufal Zamzami Cahyaputra
+  - Wakil Ketua: Humaidatul Faiqoh Putri Abdillah
+  - Sekretaris: Tiara Gayatri
+  - Bendahara: Adelwais Intan Aurelia
+  - Koordinator Divisi:
+   - Koordinator Syiar: Muhammad Hanif Salim
+   - Koordinator CM (Community Management): Ulfiah
+   - Koordinator PPSDM (Pengembangan Potensi Sumber Daya Manusia): Sabrina Anastacia Prayogo
+   - Koordinator Keputrian: Anggun Diah Wilmida
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Naufal (+62 812-3978-1523)
+  - Instagram: @mcucofficial
+
+ - Jadwal Kegiatan:
+  Setiap Kamis: 16.00 – 17.00 WIB
+ 
+ - Lokasi Kegiatan:
+  Ruangan 1031
+
+- Hindu Dharma (KMHD):
+ - Pengertian:
+  UKM Hindu Dharma merupakan organisasi keagamaan yang menjadi wadah kebersamaan untuk untuk saling berbagi dan membantu, serta mempererat tali persaudaraan antar mahasiswa Hindu Universitas Ciputra Surabaya.
+
+ - Struktur:
+  - Pembina: Ni Putu Aryani, S.T., M.T., Ph.D.
+  - Ketua: I Wayan Michael Mahaabhinaya Darmawan
+  - Wakil Ketua: I Gede Purana Jaya Kusuma
+  - Sekretaris: I Gusti Ayu Made Maia Anindia
+  - Bendahara: Luh Putu Susila Adnyani
+  - Koordinator:
+   - Koordinator Humas: Andika Prasetya Artha
+   - Koordinator Humoniora: Nyoman Aditya Murdana
+   - Koordinator Publikasi dan Dokumentasi: I Made Bagas Ardhika Wijaya
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Michael (+62 815-5834-8912)
+  - Instagram: @kmhd_uc
+
+ - Jadwal Kegiatan:
+  Setiap Rabu: 17.00 – 19.00 WIB
+ 
+ - Lokasi Kegiatan:
+  Ruangan 934
+
+- Taekwondo:
+ - Pengertian:
+  Taekwondo UC adalah UKM olahraga yang menawarkan pelatihan seni bela diri Korea yang fokus pada pengembangan fisik, mental, dan disiplin bagi mahasiswa Ciputra yang tertarik untuk mempelajari taekwondo.
+
+ - Struktur:
+  - Pembina: Dr. Drs. Ignatius Ismojo Herdono, M.Med.Kom.
+  - Ketua: Salina Jessica Allegra
+  - Sekretaris/Bendahara: Yobelina Nancy Narwastu Kurnianto
+
+ - Informasi Kontak:
+  - Instagram: @taekwondo.uc
+
+ - Jadwal Kegiatan:
+  Setiap Senin & Kamis: 18.00 – 20.00 WIB
+ 
+ - Lokasi Kegiatan:
+  Mezzanine Universitas Ciputra
+
+- UC Basket:
+ - Pengertian:
+  UC Basket merupakan salah satu Unit Kegiatan Mahasiswa (UKM) di Universitas Ciputra Surabaya yang memiliki tujuan agar setiap individu anggota dapat memiliki dasar keterampilan yang baik dalam olahraga basket dan mengalami pengembangan kemampuan secara berkelanjutan serta menjadi wadah bagi mahasiswa untuk dapat mengembangkan minat dan bakat serta mengikuti berbagai kegiatan terkait olahraga basket.
+
+ - Struktur:
+  - Pembina: Mitchel Soegihardjo
+  - Ketua: Alyssa Halim
+  - Wakil Ketua: Ivana Gracia
+  - Sekretaris: Nicklaus Arthur
+  - Bendahara: Sharon Tandawan
+  - Koordinator PDD (Publikasi dan Dokumentasi): Rovalina Gunawan
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Putri (+62 811-2953-591)
+  - Instagram: @uc.basket
+
+ - Jadwal Kegiatan:
+  Setiap Rabu & Kamis: 18.00 – 20.00 WIB
+ 
+ - Lokasi Kegiatan:
+  Lapangan Basket Sekolah Ciputra
+
+- UC Esport (UCE):
+ - Pengertian:
+  UCE (UC Esport) adalah komunitas mahasiswa Universitas Ciputra yang berfokus dalam industri Esport, UC Esport menarget untuk berkontribusi dalam pengembangan ekosistem Esport di Surabaya dari beragam jenis game dan kompetisi.
+
+ - Struktur:
+  - Ketua: Branden Kristanto
+  - Wakil Ketua: Timotius Aldo
+  - Sekretaris: Beatrice Michelle
+  - Bendahara: Felice Eugene
+  - Public Relation: Dalia Susanto
+  - Social Media: James Reynaldi
+  - Pro Team:
+   - Manager Pro MLBB: Elsa Lukman
+   - Manager Pro Valorant: Kevin Artan
+  - UKM Casual:
+   - Manager Casual MLBB: Pharrel Malvine
+   - Manager Casual Valorant: Albert Kenneth
+   - Moonton Student Leader: Vincent Lawrence
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Branden (+62 813-3350-6365)
+  - Instagram: @uc.esport
+
+ - Jadwal Kegiatan:
+  Setiap Kamis: 18.00 – 20.00 WIB
+ 
+ - Lokasi Kegiatan:
+  Ruangan 1032
+
+- UC Futsal:
+ - Pengertian:
+  UC Futsal adalah sebuah Unit Kegiatan Mahasiswa Universitas Ciputra yang menyediakan mahasiswa UC pelatihan untuk mengembangkan bakat dan minat untuk olahraga futsal. UC Futsal juga menawarkan mahasiswa untuk berkembang diluar skala internal universitas dengan mengikuti pertandingan dan kompetisi di ajang turnamen antar universitas. Diluar kompetisi dan turnamen, UC Futsal menyediakan berbagai macam event menyenangkan yang dapat diikuti mahasiswa seperti event Nobar (Nonton Bareng). Nilai-nilai seperti kerja-sama tim, kedisiplinan dan kesehatan fisik adalah fokus utama UC Futsal dengan melalui berbagai macam latihan rutin dan partisipasi dalam kompetisi dan turnamen.
+
+ - Struktur:
+  - Pembina: Suherman, S.M.
+  - Ketua: Sendy
+  - Wakil Ketua: Felicia Cheryl Lay
+  - Sekretaris: Michelle Wirawan
+  - Bendahara: Clarabella Maria Theodora Retanubun
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Sendy (+62 812-3459-5516)
+  - Instagram: @uc_futsal
+
+ - Jadwal Kegiatan:
+  Setiap Selasa & Jumat Pk. 18:00 – 20:00
+ 
+ - Lokasi Kegiatan:
+  Lapangan Basket Futsal Universitas Ciputra
+
+- Kanvas:
+ - Pengertian:
+  Kanvas adalah organisasi mahasiswa yang bertujuan untuk mengembangkan minat dan bakat mahasiswa dalam bidang kreativitas, terutama dalam menggambar dan desain, baik digital maupun tradisional. Selain itu, organisasi ini juga berfokus pada peningkatan partisipasi mahasiswa dalam berbagai kompetisi dan ke-organisasian untuk menambah kemampuan dan pengalaman.
+
+ - Struktur:
+  - Pembina: Putu Wardhani S.P.
+  - Presiden: Shafira Alin C.
+  - Wakil Presiden: Steven Setiawan Djorji
+  - Sekretaris: Vanessa Christie Gunawan
+  - Bendahara: Jason Leonardo Harianto
+  - Koordinator Event: Marcella Calisya Howard
+  - Koordinator PDD (Program & Dokumentasi):
+   - Jennifer Calista Chandra
+   - Kevin Nathanael
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Alin (+62 821-4217-2696)
+  - Instagram: @kanvas_uc
+
+ - Jadwal Kegiatan:
+  Setiap Selasa: 16.30 – 18.30 WIB
+ 
+ - Lokasi Kegiatan:
+  Ruangan 1831
+
+- Artupic:
+ - Pengertian:
+  Artupic merupakan tempat yang tepat bagi mahasiswa Universitas Ciputra yang memiliki hobi fotografi. UKM ini merupakan komunitas aktif para pecinta fotografi yang berbagi semangat untuk mengabadikan dunia di sekitar mereka dengan cara yang unik dan kreatif.
+
+ - Struktur:
+  - Pembina: Junaidi Wirawan, S.Sn., M.Ds.
+  - Ketua: Cabrina
+  - Wakil Ketua: Billy
+  - Sekretaris: Angel
+  - Bendahara: Vanessa
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Cabrina (+62 821-4213-0051)
+  - Instagram: @artupiciputra
+
+ - Jadwal Kegiatan:
+  Setiap Sabtu: 09.00 – 11.00 WIB
+ 
+ - Lokasi Kegiatan:
+  Ruangan 1931, 1933
+
+- Tabletop:
+ - Pengertian:
+  Tabletop adalah salah satu Unit Kegiatan Mahasiswa di Universitas Ciputra yang berfokus pada permainan yang dimainkan di atas meja atau permukaan datar. UKM ini bertujuan membangun komunitas yang beragam, mulai dari permainan board game yang meningkatkan kekuatan mental dan keterampilan perencanaan, hingga permainan kompetitif seperti catur dan Trading Card Game (TCG).
+
+ - Struktur:
+  - Pembina: Aurelia Vania Diastari
+  - Ketua: Raymond Setiawan
+  - Wakil Ketua: Adam Haidar Sang
+  - Sekretaris: Hannie Aurelia Harjosantoso
+  - Koordinator Chess: Alberto Halim Limantoro
+  - Koordinator Boardgame: Hugo Maximilian Hadi
+  - Koordinator TCG: Rowland Cyrano
+
+ - Informasi Kontak:
+  - Kontak Pengurus: +62 822-3899-5595
+  - Instagram: @uc.tabletop
+
+ - Jadwal Kegiatan:
+  Setiap Selasa: 17.00 – 20.00 WIB
+ 
+ - Lokasi Kegiatan:
+  Ruangan 606, 608, 609, 504, 505A, 505B
+
+- Task Force Sakura (TFS):
+ - Pengertian:
+  Task Force Sakura (TFS) merupakan salah satu Unit Kegiatan Mahasiswa yang menjadi wadah untuk mengekspresikan, mempelajari, serta mengenalkan kebudayaan Jepang kepada para mahasiswa Universitas Ciputra dan masyarakat luas.
+
+ - Struktur:
+  - Pembina: Olivia Gondoputranto, S.Sn., M.M
+  - Ketua: Chrystalyn Yovela Yulianto
+  - Wakil: Videlia Gracia Salim
+  - Sekretaris: Clara Angela
+  - Bendahara: Michellyn Devi
+  - Koor Culture: Airis Utomo
+  - Wakil Koor Culture: Calista Aurora W
+  - Koor Cosplay: Queeney Lovely C
+  - Koor Creative: Budi Dharma A
+  - Wakil Koor Creative: Tjang William Chandra
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Alyn (+62 821-3220-1005)
+  - Instagram: @taskforcesakura
+
+ - Jadwal Kegiatan:
+  Setiap Rabu: 18.00 – 20.00 WIB
+
+ - Lokasi Kegiatan:
+  Ruangan 1435, 1436, 1437
+
+- Mahatra:
+ - Pengertian:
+  Mahatra (Mahasiswa Pecinta Alam Universitas Ciputra) adalah unit kegiatan mahasiswa yang bergerak dalam pelestarian alam, kegiatan kemanusiaan, dan aktivitas alam bebas. UKM ini bertujuan untuk meningkatkan kesadaran dan partisipasi mahasiswa dalam menjaga kelestarian lingkungan serta terlibat dalam kegiatan sosial yang bermanfaat bagi masyarakat. :contentReference[oaicite:0]{index=0}
+
+ - Struktur:
+  - Pembina: [Informasi tidak tersedia]
+  - Ketua: [Informasi tidak tersedia]
+  - Wakil Ketua: [Informasi tidak tersedia]
+  - Sekretaris: [Informasi tidak tersedia]
+  - Bendahara: [Informasi tidak tersedia]
+
+ - Informasi Kontak:
+  - Kontak Pengurus: [Informasi tidak tersedia]
+  - Instagram: @mahatrauc
+
+ - Jadwal Kegiatan:
+  Setiap Kamis: 18.00 – 20.00 WIB
+
+ - Lokasi Kegiatan:
+  UC Loop
+
+- Balawarta:
+ - Pengertian:
+  Balawarta adalah salah satu Unit Kegiatan Mahasiswa (UKM) di Universitas Ciputra Surabaya yang berfokus pada pengembangan pengetahuan dan keterampilan mahasiswa di bidang jurnalistik. Tujuannya ialah untuk melatih pemikiran mahasiswa yang independen, objektif, dan kritis.
+
+ - Struktur:
+  - Pembina: Chrisyandi Tri Kartika, S. Sos
+  - Ketua: Aurel Sukma Ratih
+  - Wakil Ketua: Emeraldo Ariesusandi
+  - Sekretaris: Amira Nafisha Tsaqifa
+  - Bendahara: Keelin Jessica Tirtamulia
+  - Koor Design: Diva Sevila Wijaya
+  - Koor Sosmed: Paula Olivia Lokman
+  - Koor Liason Officer: Rosalinda Febiola Wijaya
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Aurel (+62 878-7382-3406)
+  - Instagram: @balawarta.uc
+
+ - Jadwal Kegiatan:
+  Setiap Rabu: 17.00 – 19.00 WIB
+ 
+ - Lokasi Kegiatan:
+  Ruangan 1539
+
+- UCDS:
+ - Pengertian:
+  Universitas Ciputra Debate Society (UCDS) merupakan salah satu Unit Kegiatan Mahasiswa Universitas Ciputra Surabaya yang berfokus pada pengembangan pengetahuan dan keterampilan mahasiswa di bidang debat, dengan tujuan untuk menciptakan mahasiswa yang memiliki pola pikir kritis dan prestatif yang berkemampuan public speaking maupun critical thinking.
+
+ - Struktur:
+  - Pembina: Timothy Joshua Malawau, S.Psi.
+  - President: Michelle Annetta, PSY '23
+  - Vice President: Angelica Stephanie, IBM '23
+  - Secretary (Coaching): Ruby Arthalia, ISB '23
+  - Secretary (Administration): Gabriel Alexandra, COM '23
+  - Treasurer (Administration): Marzenda Saila, VCD '23
+  - Treasurer (Coaching): Yosua Pirono, INA '23
+
+ - Informasi Kontak:
+  - Kontak Pengurus: Annete (+62 858-4147-7919)
+  - Instagram: @ucds_uc
+
+ - Jadwal Kegiatan:
+  Setiap Rabu: 17.30 – 19.30 WIB
+ 
+ - Lokasi Kegiatan:
+  Ruangan 1538, Theater Lantai 15
+

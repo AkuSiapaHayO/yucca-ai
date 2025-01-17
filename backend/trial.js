@@ -16,7 +16,7 @@ const __dirname = dirname(__filename);
 dotenv.config();
 
 const app = express();
-app.use(express.json());
+app.use(express.json());    
 
 const VECTOR_STORE_PATH = join(__dirname, 'vectorstore');
 const KNOWLEDGE_BASE_DIR = join(__dirname, 'knowledge_base');

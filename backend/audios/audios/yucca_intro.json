@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "soundFile": "/home/abuku/projects/ai/yucca-ai/backend/audios/yucca_intro.wav",
+    "duration": 2.92
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.11, "value": "X" },
+    { "start": 0.11, "end": 0.19, "value": "B" },
+    { "start": 0.19, "end": 0.26, "value": "G" },
+    { "start": 0.26, "end": 0.33, "value": "C" },
+    { "start": 0.33, "end": 0.47, "value": "E" },
+    { "start": 0.47, "end": 0.54, "value": "B" },
+    { "start": 0.54, "end": 0.61, "value": "F" },
+    { "start": 0.61, "end": 0.68, "value": "B" },
+    { "start": 0.68, "end": 0.82, "value": "C" },
+    { "start": 0.82, "end": 0.93, "value": "A" },
+    { "start": 0.93, "end": 1.30, "value": "B" },
+    { "start": 1.30, "end": 1.44, "value": "C" },
+    { "start": 1.44, "end": 1.51, "value": "B" },
+    { "start": 1.51, "end": 1.79, "value": "C" },
+    { "start": 1.79, "end": 1.93, "value": "B" },
+    { "start": 1.93, "end": 2.00, "value": "C" },
+    { "start": 2.00, "end": 2.14, "value": "B" },
+    { "start": 2.14, "end": 2.22, "value": "A" },
+    { "start": 2.22, "end": 2.36, "value": "C" },
+    { "start": 2.36, "end": 2.64, "value": "F" },
+    { "start": 2.64, "end": 2.92, "value": "X" }
+  ]
+}

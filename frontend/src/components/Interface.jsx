@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useChat } from "../hooks/Hooks";
 
 const Interface = () => {
@@ -11,15 +11,41 @@ const Interface = () => {
     setShowHistory,
     startListening,
     listening,
+    transcribedText, // Now assume it's updated via state
+    clearMemory,
   } = useChat();
 
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    // Automatically send transcribed text when available
+    if (transcribedText && transcribedText.trim() !== "") {
+      setIsLoading(true); // Start loading animation
+      chat(transcribedText)
+        .catch((err) => console.error("Error sending transcribed text:", err))
+        .finally(() => setIsLoading(false)); // Stop loading animation
+    }
+  }, [transcribedText]); // Trigger only when `transcribedText` changes
+
+  const handleClearMemory = async () => {
+    try {
+      setIsLoading(true);
+      await clearMemory();
+    } catch (err) {
+      console.error("Failed to clear chat memory:", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleStartListening = () => {
+    startListening();
+  };
+
   const handleSend = (input) => {
-    setIsLoading(true);
-    chat(input).finally(() => {
-      setIsLoading(false); // Stop loading after chat is complete
-    });
+    if (input.trim() !== "") {
+      chat(input); // Regular text input
+    }
   };
 
   return (
@@ -29,10 +55,10 @@ const Interface = () => {
           style={{
             textAlign: "center",
             position: "fixed",
-            top: "20%", // Move to the top of the screen
+            top: "20%",
             left: "50%",
             transform: "translateX(-50%)",
-            zIndex: 20, // Ensure it's on top
+            zIndex: 20,
           }}
         >
           <div className="bobbing-dots">
@@ -105,14 +131,61 @@ const Interface = () => {
             )}
           </div>
         )}
-        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
+          }}
+        >
+          {/* Microphone Button */}
+          <button
+            onClick={handleStartListening}
+            style={{
+              position: "absolute",
+              top: "-40px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "50px",
+              height: "50px",
+              borderRadius: "50%",
+              border: "none",
+              backgroundColor: listening ? "#FFCD72" : "#FF9D27",
+              color: "#fff",
+              fontSize: "20px",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
+            }}
+          >
+            🎤
+          </button>
+
+          <button
+            onClick={handleClearMemory}
+            style={{
+              padding: "8px",
+              border: "none",
+              borderRadius: "6px",
+              backgroundColor: "#FF3E3E",
+              color: "#fff",
+              fontSize: "14px",
+              cursor: "pointer",
+            }}
+          >
+            Clear Chat Memory
+          </button>
+
+          {/* Chat Box */}
           <div style={{ display: "flex", gap: "8px" }}>
             <input
               type="text"
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend(userInput)}
-              placeholder="Ask Yucca a Question!"
+              placeholder="Type your message..."
               style={{
                 flexGrow: 1,
                 padding: "8px",
@@ -122,7 +195,6 @@ const Interface = () => {
                 fontSize: "14px",
                 boxSizing: "border-box",
                 backgroundColor: "#FFE3C3",
-                fontFamily: "'Poppins', sans-serif",
               }}
             />
             <button
@@ -137,28 +209,12 @@ const Interface = () => {
                 cursor: "pointer",
                 boxSizing: "border-box",
               }}
-              onMouseOver={(e) => (e.target.style.backgroundColor = "#FF480A")} // Darker accent
+              onMouseOver={(e) => (e.target.style.backgroundColor = "#FF480A")}
               onMouseOut={(e) => (e.target.style.backgroundColor = "#FF611F")}
             >
               Send
             </button>
           </div>
-          <button
-            onClick={startListening}
-            style={{
-              width: "100%",
-              padding: "8px",
-              border: "none",
-              borderRadius: "6px",
-              backgroundColor: listening ? "#FFCD72" : "#FF9D27",
-              color: "#fff",
-              fontSize: "14px",
-              cursor: "pointer",
-              boxSizing: "border-box",
-            }}
-          >
-            {listening ? "Listening..." : "Speak"}
-          </button>
         </div>
         <style>
           {`

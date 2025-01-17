@@ -103,6 +103,7 @@ export const ChatProvider = ({ children }) => {
         lipsync, // Providing lipsync data to the context
         message, // Providing the latest message
         audio, // Providing the audio URL for playback
+        clearMemory,
       }}
     >
       {children}
@@ -116,4 +117,14 @@ export const useChat = () => {
     throw new Error("useChat must be used within a ChatProvider");
   }
   return context;
+};
+
+const clearMemory = async () => {
+  try {
+    await axios.post("http://localhost:5000/api/clear-memory");
+    setMessages([]); // Clear local messages state
+  } catch (error) {
+    console.error("Failed to clear chat memory:", error);
+    throw error;
+  }
 };

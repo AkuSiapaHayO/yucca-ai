@@ -130,46 +130,53 @@ function vectorStoreExists() {
 }
 
 async function getFileHash(filePath) {
-    const stats = await fs.stat(filePath);
-    return `${filePath}-${stats.mtime.getTime()}`;
+  return filePath;
 }
 
 async function loadNewTextFiles() {
-    await fs.mkdir(KNOWLEDGE_BASE_DIR, { recursive: true });
-    const files = await fs.readdir(KNOWLEDGE_BASE_DIR);
-    const textFiles = files.filter(file => file.endsWith('.txt'));
+  console.log('Starting loadNewTextFiles...');
+  await fs.mkdir(KNOWLEDGE_BASE_DIR, { recursive: true });
+  const files = await fs.readdir(KNOWLEDGE_BASE_DIR);
+  console.log('All files in directory:', files);
+  
+  const textFiles = files.filter(file => file.endsWith('.txt'));
+  console.log('Text files found:', textFiles);
 
-    const processedFiles = await loadProcessedFiles();
-    const processedHashes = new Set(processedFiles.files);
+  const processedFiles = await loadProcessedFiles();
+  console.log('Processed files:', processedFiles);
+  
+  const processedHashes = new Set(processedFiles.files);
+  console.log('Processed file paths:', [...processedHashes]);
 
-    const newFiles = [];
+  const newFiles = [];
+  for (const file of textFiles) {
+      const filePath = join(KNOWLEDGE_BASE_DIR, file);
+      const fileIdentifier = filePath; // Just use the file path as identifier
+      console.log(`Checking file ${file}`);
+      
+      if (!processedHashes.has(fileIdentifier)) {
+          console.log(`New file found: ${file}`);
+          newFiles.push({ filePath, fileHash: fileIdentifier });
+      }
+  }
 
-    for (const file of textFiles) {
-        const filePath = join(KNOWLEDGE_BASE_DIR, file);
-        const fileHash = await getFileHash(filePath);
+  if (newFiles.length === 0) {
+      console.log('No new files to process');
+      return null;
+  }
 
-        if (!processedHashes.has(fileHash)) {
-            newFiles.push({ filePath, fileHash });
-        }
-    }
+  let allDocs = [];
 
-    if (newFiles.length === 0) {
-        console.log('No new files to process');
-        return null;
-    }
+  for (const { filePath, fileHash } of newFiles) {
+      console.log(`Loading file: ${filePath}`);
+      const loader = new TextLoader(filePath);
+      const docs = await loader.load();
+      allDocs = allDocs.concat(docs);
+      processedFiles.files.push(fileHash);
+  }
 
-    let allDocs = [];
-
-    for (const { filePath, fileHash } of newFiles) {
-        console.log(`Loading file: ${filePath}`);
-        const loader = new TextLoader(filePath);
-        const docs = await loader.load();
-        allDocs = allDocs.concat(docs);
-        processedFiles.files.push(fileHash);
-    }
-
-    await saveProcessedFiles(processedFiles);
-    return allDocs;
+  await saveProcessedFiles(processedFiles);
+  return allDocs;
 }
 
 async function initializeKnowledgeBase(forceReload = false) {
@@ -286,9 +293,29 @@ app.post('/api/init', async (req, res) => {
     }
 });
 
-const SYSTEM_TEMPLATE = `Yucca is a cheerful, positive, and respectful AI assistant for Universitas Ciputra. It calls users 'Entrepreneurs,' gives clear, accessible answers, and responds in Indonesian or English based on their language. Yucca is friendly, engaging, and focused on building conversations, ending with a 75-word reply and a question to continue the chat. Use {memory} for knowledge and {context} to answer: {question}.`;
+const SYSTEM_TEMPLATE = `Yucca is a cheerful, positive, and respectful AI assistant for Universitas Ciputra. It calls users 'Entrepreneurs,' gives clear, accessible answers, and responds in Indonesian or English based on their language. Yucca is friendly, engaging, and focused on building conversations and learning more about the users, with a maximum of 75-word reply and a question to continue the chat. Use {memory} for knowledge only and do not answer previous questions. And {context} to answer: {question}.`; 
 
-const prompt = PromptTemplate.fromTemplate(SYSTEM_TEMPLATE);
+const LOADING_AUDIO_PATHS = [
+  'loading_sounds/loading1.mp3',
+  // 'loading_sounds/loading2.mp3',
+  // 'loading_sounds/loading3.mp3',
+  // 'loading_sounds/waiting1.mp3',
+  // 'loading_sounds/waiting2.mp3'
+];
+
+const getRandomLoadingAudio = async () => {
+  const randomIndex = Math.floor(Math.random() * LOADING_AUDIO_PATHS.length);
+  const selectedPath = LOADING_AUDIO_PATHS[randomIndex];
+  try {
+      return {
+          audio: await audioFileToBase64(selectedPath),
+          path: selectedPath
+      };
+  } catch (error) {
+      console.error('Error loading waiting audio:', error);
+      return null;
+  }
+};
 
 app.post('/api/chat', async (req, res) => {
     try {
@@ -300,6 +327,16 @@ app.post('/api/chat', async (req, res) => {
 
         if (!vectorStore) {
             return res.status(400).json({ error: 'Knowledge base not initialized' });
+        }
+
+        // Send initial loading audio
+        const loadingAudio = await getRandomLoadingAudio();
+        if (loadingAudio) {
+            res.write(JSON.stringify({
+                status: 'loading',
+                audio: loadingAudio.audio
+            }) + '\n');
+            res.flush();
         }
 
         // Load and update memory
@@ -355,45 +392,75 @@ app.post('/api/chat', async (req, res) => {
             lipsync: await readJsonTranscript(`audios/message_0.json`),
         };
 
-        // Karyna changed
-        // // Split text into chunks and process them sequentially
-        // const chunks = chunkText(textInput);
-        // console.log(`Processing ${chunks.length} chunks...`);
-
-        // // Generate audio for chunks sequentially
-        // const audioFiles = await processChunksSequentially(chunks);
-        
-        // // Combine all audio files
-        // const finalFileName = 'audios/message_0.mp3';
-        // await concatenateAudioFiles(audioFiles, finalFileName);
-        
-        // // Generate lipsync for final audio
-        // await lipSyncMessage(0);
-
-        // const messageData = {
-        //     text: textInput,
-        //     audio: await audioFileToBase64(finalFileName),
-        //     lipsync: await readJsonTranscript(`audios/message_0.json`),
-        // };
-
         res.send({ messages: [messageData] });
     } catch (error) {
         console.error('Error processing chat:', error);
         res.status(500).json({ error: 'Failed to process chat message' });
     }
 });
+
+app.get("/api/intro", async (req, res) => {
+    const messageData = {
+      text: "Halo, Yucca di sini, ada yang bisa Yucca bantu?",
+      audio: await audioFileToBase64(`audios/yucca_intro.wav`),
+      lipsync: await readJsonTranscript(`audios/yucca_intro.json`),
+    };
+    res.send({ messsages: [messageData] });
+  });
+  
+  app.get("/api/loading", async (req, res) => {
+    const messageData = {
+      text: "Bentar ya, Yucca lagi mikir",
+      audio: await audioFileToBase64(`audios/yucca_lagi_mikir.wav`),
+      lipsync: await readJsonTranscript(`audios/yucca_lagi_mikir.json`),
+    };
+    res.send({ messsages: [messageData] });
+  });
+
+// Modify the update endpoint to properly handle new files
 app.post('/api/update', async (req, res) => {
-    try {
-        const success = await initializeKnowledgeBase(false);
-        if (success) {
-            res.json({ message: 'Knowledge base updated successfully' });
-        } else {
-            res.status(500).json({ error: 'Failed to update knowledge base' });
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).json({ error: 'Failed to update knowledge base' });
-    }
+  try {
+      // Load existing vector store if it exists
+      if (await vectorStoreExists()) {
+          console.log('Loading existing vector store...');
+          vectorStore = await FaissStore.load(VECTOR_STORE_PATH, embeddings);
+      }
+
+      // Process new files
+      const newDocs = await loadNewTextFiles();
+
+      if (newDocs) {
+          console.log(`Processing ${newDocs.length} new documents`);
+          const textSplitter = new RecursiveCharacterTextSplitter({
+              chunkSize: 1000,
+              chunkOverlap: 200,
+          });
+          const splitDocs = await textSplitter.splitDocuments(newDocs);
+
+          if (vectorStore) {
+              await vectorStore.addDocuments(splitDocs);
+              console.log('Added new documents to existing vector store');
+          } else {
+              vectorStore = await FaissStore.fromDocuments(splitDocs, embeddings);
+              console.log('Created new vector store');
+          }
+
+          await vectorStore.save(VECTOR_STORE_PATH);
+          console.log('Vector store saved successfully');
+          res.json({ 
+              message: 'Knowledge base updated successfully',
+              newDocuments: newDocs.length
+          });
+      } else {
+          res.json({ 
+              message: 'No new documents to process',
+              newDocuments: 0
+          });
+      }
+  } catch (error) {
+      console.error('Error:', error);
+      res.status(500).json({ error: 'Failed to update knowledge base' });
+  }
 });
 
 // Start the server

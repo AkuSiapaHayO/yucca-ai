@@ -1,0 +1,133 @@
+Depot Mey Mey
+Lokasi: Pasar Citraland (Taman Puspa Raya)
+- Nasi Campur: Rp20,000
+- Nasi Kuning: Rp20,000
+- Nasi Pecel: Rp15,000
+
+Depot Rame Rame
+Lokasi: Pasar Citraland (Taman Puspa Raya)
+- Nasi Bakmoy: Rp18,000
+- Nasi Campur: Rp20,000
+- Mie Ayam: Rp15,000
+
+Kuliner Nusantara
+Lokasi: Pasar Citraland (Taman Puspa Raya)
+- Soto Udang: Rp20,000
+- Nasi Tim Jakarta: Rp22,000
+- Bakmie Belitung: Rp30,000
+
+Kuliner Makassar
+Lokasi: Pasar Citraland (Taman Puspa Raya)
+- Soto Makassar: Rp18,000
+- Nasi Cumi: Rp25,000
+- Ayam Goreng: Rp18,000
+
+Depot Ming Cuan
+Lokasi: Pasar Citraland (Taman Puspa Raya)
+- Mie Ayam: Rp15,000
+- Bihun Goreng: Rp20,000
+- Kwetiau Goreng: Rp30,000
+
+Pangsit Mie Bondowoso
+Lokasi: Pasar Citraland (Taman Puspa Raya)
+- Pangsit Mie Ayam: Rp20,000
+- Pangsit Mie Bakwan: Rp24,000
+- Bakwan Sapi: Rp30,000
+
+Depot Djogja
+Lokasi: Pasar Citraland (Taman Puspa Raya)
+- Nasi Gudeg: Rp25,000
+- Nasi Goreng Kecap: Rp25,000
+- Kwetiau Siram: Rp30,000
+
+Yummy
+Lokasi: Pasar Citraland (Taman Puspa Raya)
+- Gorengan Bola Ayam/pcs: Rp4,000
+
+Bakwan Surabaya
+Lokasi: Pasar Citraland (Taman Puspa Raya)
+- Bakwan Halus/pcs: Rp4,000
+- Bakwan Kasar/pcs: Rp4,000
+- Siomay: Rp6,000
+
+Acuan
+Lokasi: Pasar Citraland (Taman Puspa Raya)
+- Nasi Goreng: Rp38,000
+- Mie Goreng: Rp38,000
+- Kwetiau Goreng: Rp40,000
+
+Ohana
+Lokasi: Pasar Citraland (Taman Puspa Raya)
+- Chicken Katsu (only): Rp18,000
+- Chicken Karage Set: Rp28,000
+- Chicken Teriyaki Set: Rp28,000
+
+Gatherinc Bistro and Bakery
+Lokasi: Taman Puspa Raya A2 no 11
+- Man and Cheese: Rp60,000
+- Under the Sea Salad: Rp95,000
+- Taco Bitel: Rp50,000
+
+Bubur Ayam Surya
+Lokasi: Pasar Citraland (Taman Puspa Raya)
+- Bubur Ayam Surya: Rp25,000
+
+Depot Karimun
+Lokasi: Pasar Citraland (Taman Puspa Raya)
+- Misua Komplit: Rp25,000
+- Nasi Babi Kecap: Rp25,000
+- Bai Kut Teh: Rp30,000
+
+Pecel Bu Mun
+Lokasi: Pasar Citraland (Taman Puspa Raya)
+- Nasi Pecel: Rp15,000
+- Nasi Campur: Rp20,000
+- Nasi Kuning: Rp20,000
+
+Katsuku
+Lokasi: Denver Food, Universitas Ciputra
+- Teriyaki Chicken Rice: Rp27,000
+- Curry Chicken Katsu: Rp27,000
+- Black Pepper Chicken Katsu: Rp27,000
+
+Denver Uncle Hao
+Lokasi: Denver Food, Universitas Ciputra
+- Chicken Cabe Garam Rice Bowl: Rp30,000
+- Tahu Cabe Garam Rice Bowl: Rp25,000
+- Chicken Sambal Mata Rice Bowl: Rp30,000
+
+Denver Nasi Priyayi Dapur Nyonya
+Lokasi: Denver Food, Universitas Ciputra
+- Bakmie UC: Rp20,000
+- Ayam Geprek: Rp25,000
+- Telur Geprek: Rp15,000
+
+Aksara
+Lokasi: Lobby, Universitas Ciputra
+- Ayam Goreng: Rp22,000
+- Gado-gado: Rp18,000
+- Pecel: Rp15,000
+
+Mie PinangSia
+Lokasi: Denver Food, Universitas Ciputra
+- Indomie: Rp12,000
+- Indomie Double: Rp18,000
+- Indomie Beef Teriyaki: Rp28,000
+
+Madame Lily
+Lokasi: UC Walk, Universitas Ciputra
+- Gado-Gado: Rp24,000
+- Indomie Goreng: Rp26,000
+- Fruit Salad: Rp18,000
+
+E&W Sandwich
+Lokasi: UC Walk, Universitas Ciputra
+- Mini Sandwich Chicken: Rp32,000
+- Beef Sandwich Large: Rp48,000
+- Mini Subway Sandwich To Go: Rp35,000
+
+Chubby Chicken
+Lokasi: Kosko, Universitas Ciputra
+- Crispy Chicken: Rp16,000
+- Crispy Dori: Rp25,000
+- Crispy Cumi-Cumi: Rp24,000
